@@ -37,10 +37,10 @@ jobs:
           node-version: '14.x'
       - name: Install dependencies
         run: yarn install
-      - name: End to end test
-        run: yarn test
-      - name: Lint
-        run: yarn run lint
+      # - name: End to end test
+      #   run: yarn test
+      # - name: Lint
+      #   run: yarn run lint
   
   code-security:
     name: Code security scan
