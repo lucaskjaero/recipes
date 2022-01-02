@@ -3,7 +3,7 @@ const siteDomainName = process.env.DOMAIN_NAME || "localhost";
 
 module.exports = {
   siteMetadata: {
-    title: `52 Recipes Challenge`,
+    title: `Lucas Kjaero-Zhang - 52 Recipes Challenge`,
     author: {
       name: `Lucas Kjaero-Zhang`,
       summary: `who lives in Copenhagen and is trying to make 52 new recipes in 2022.`,
