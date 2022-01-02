@@ -1,0 +1,11 @@
+patch:
+  - cypress/*
+  - resume/*
+  - ./*
+  - '**'
+  - '.*'
+  - '.*/**'
+
+minor:
+  - content/*
+  - src/*
