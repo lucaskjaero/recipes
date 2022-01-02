@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build and deploy
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged
     timeout-minutes: 5
@@ -20,28 +20,12 @@ jobs:
         with:
           node-version: '14.x'
       - name: Build dependencies
-        run: npm ci --only=production
+        run: yarn install --production
       - name: Build production bundle
         env:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_TRACKING_ID }}
           CI: true
-        run: npm run build
-      - uses: actions/upload-artifact@master
-        name: Upload website content
-        with:
-          name: gatsby-public
-          path: public
-  
-  deploy: 
-    name: Deploy to S3
-    needs: [build-resume, build-frontend]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@master
-        name: Download website content
-        with:
-          name: gatsby-public
-          path: public
+        run: yarn run build
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -49,6 +33,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-1
       - name: Push to S3
-        run: aws s3 sync public s3://${{ secrets.AWS_S3_BUCKET }}/ --no-progress --delete
-      - name: Invalidate Cloudfront cache
-        run: aws cloudfront create-invalidation --distribution-id EWJC89C0ACD7D --paths /index.html /*
+        run: yarn run deploy
+        env:
+          DOMAIN_NAME: recipes.lucaskjaerozhang.com # Probably doesn't do anything

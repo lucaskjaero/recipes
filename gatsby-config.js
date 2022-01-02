@@ -1,3 +1,6 @@
+// It is better to fail loudly than default to deploying to prod.
+const siteDomainName = process.env.DOMAIN_NAME || "localhost";
+
 module.exports = {
   siteMetadata: {
     title: `52 Recipes Challenge`,
@@ -128,5 +131,16 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+
+    // Deployment
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        bucketName: siteDomainName,
+        protocol: "https",
+        hostname: siteDomainName,
+        acl: null,
+      },
+    },
   ],
 }
