@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `52 Recipes Challenge`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Lucas Kjaero-Zhang`,
+      summary: `who lives in Copenhagen and is trying to make 52 new recipes in 2022.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `52 recipes in 2022.`,
+    siteUrl: `https://recipes.lucaskjaerozhang.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `LucasKjaero`,
     },
   },
   plugins: [
