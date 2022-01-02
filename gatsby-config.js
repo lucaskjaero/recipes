@@ -136,9 +136,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-s3`,
       options: {
-        bucketName: siteDomainName,
+        bucketName: "recipes.lucaskjaerozhang.com",
         protocol: "https",
-        hostname: siteDomainName,
+        hostname: "recipes.lucaskjaerozhang.com",
         acl: null,
       },
     },
