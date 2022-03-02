@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v2.5.1
         name: Install node
         with:
@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@main
+      - uses: actions/checkout@v3
       - uses: actions/setup-node@v2.5.1
         name: Install node
         with:
@@ -52,7 +52,7 @@ jobs:
         language: ['javascript']
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
