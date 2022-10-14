@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@main
         with:
           ref: main
-      - uses: actions/setup-node@v2.5.1
+      - uses: actions/setup-node@v3.5.1
         name: Install node
         with:
           node-version: '14.x'
